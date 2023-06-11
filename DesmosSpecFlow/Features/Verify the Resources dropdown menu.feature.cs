@@ -20,22 +20,22 @@ namespace DesmosSpecFlow.Features
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("Verify the Math tools dropdown menu")]
-    public partial class VerifyTheMathToolsDropdownMenuFeature
+    [NUnit.Framework.DescriptionAttribute("Verify the Resources dropdown menu")]
+    public partial class VerifyTheResourcesDropdownMenuFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
         private string[] _featureTags = ((string[])(null));
         
-#line 1 "Verify the Math tools dropdown menu.feature"
+#line 1 "Verify the Resources dropdown menu.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Verify the Math tools dropdown menu", null, ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Verify the Resources dropdown menu", null, ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -74,12 +74,12 @@ namespace DesmosSpecFlow.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Verify the Math tools dropdown menu")]
-        public virtual void VerifyTheMathToolsDropdownMenu()
+        [NUnit.Framework.DescriptionAttribute("Verify the Resources dropdown menuu")]
+        public virtual void VerifyTheResourcesDropdownMenuu()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the Math tools dropdown menu", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the Resources dropdown menuu", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 4
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -104,30 +104,36 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Given("\'Scientific\' page was opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 6
- testRunner.Then("\'Math tools\' dropdown menu \'is\' displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("\'Resources\' dropdown menu \'is\' displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 7
- testRunner.When("I click on the \'Math tools\' dropdown menu", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I click on the \'Resources\' dropdown menu", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 8
- testRunner.Then("\'Math tools\' list \'is\' displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("\'Resources\' list \'is\' displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-                TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
                             "Value"});
-                table2.AddRow(new string[] {
-                            "Scientific Calculator"});
-                table2.AddRow(new string[] {
-                            "Four-Function Calculator"});
-                table2.AddRow(new string[] {
-                            "Test Practice"});
-                table2.AddRow(new string[] {
-                            "Matrix Calculator"});
-                table2.AddRow(new string[] {
-                            "Geometry Tool"});
-                table2.AddRow(new string[] {
-                            "Download our apps in the Google Play Store and iOS App Store."});
+                table3.AddRow(new string[] {
+                            "About Us"});
+                table3.AddRow(new string[] {
+                            "Careers"});
+                table3.AddRow(new string[] {
+                            "Help Center"});
+                table3.AddRow(new string[] {
+                            "Accessibility"});
+                table3.AddRow(new string[] {
+                            "Assessments"});
+                table3.AddRow(new string[] {
+                            "Equity Principles"});
+                table3.AddRow(new string[] {
+                            "Guiding Principles"});
+                table3.AddRow(new string[] {
+                            "Desmos Store"});
+                table3.AddRow(new string[] {
+                            "Des-Blog"});
 #line 9
-  testRunner.And("Following options \'are\' displayed in \'Math tools\' list", ((string)(null)), table2, "And ");
+  testRunner.And("Following options \'are\' displayed in \'Resources\' list", ((string)(null)), table3, "And ");
 #line hidden
             }
             this.ScenarioCleanup();
