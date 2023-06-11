@@ -21,4 +21,8 @@
     <ProjectReference Include="..\DesmosTest\DesmosTest.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\Tab\Keypad\" />
+  </ItemGroup>
+
 </Project>

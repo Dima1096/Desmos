@@ -1,11 +1,11 @@
-﻿using AngleSharp.Dom;
-using Aquality.Selenium.Browsers;
+﻿using Aquality.Selenium.Browsers;
+using DesmosSpecFlow.Support;
 using DesmosTest.Configurations;
 using DesmosTest.Pages;
-using ICSharpCode.SharpZipLib;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
 using static DesmosTest.Pages.ScientificPage;
+
 
 namespace DesmosSpecFlow.StepDefinitions
 {
@@ -186,6 +186,127 @@ namespace DesmosSpecFlow.StepDefinitions
 				$"'Func' keypad is{(isDisplayed ? " not" : string.Empty)} displayed!");
 		}
 
+		[When(@"I hover '([^']*)' keypad button on 'Main' keypad")]
+		public void HoverKeypadButtonOnMainKeypad(string keypadCommand) => _scientificPage.MainForm.HoverKeypadItem(keypadCommand);
+		
+		[When(@"I hover '([^']*)' keypad button on 'Abc' keypad")]
+		public void HoverKeypadButtonOnAbcKeypad(string keypadCommand) => _scientificPage.AbcForm.HoverKeypadItem(keypadCommand);
 
+		[When(@"I hover '([^']*)' keypad button on 'Func' keypad")]
+		public void HoverKeypadButtonOnFuncKeypad(string keypadCommand) => _scientificPage.FuncForm.HoverKeypadItem(keypadCommand);
+
+		[Then(@"'([^']*)' button '(is|is not)' highlighted on 'Main' keypad")]
+		public void CheckButtonIsHighlightedOnMainKeypad(string keypadCommand, bool isHighlighted)
+		{
+			Assert.IsTrue(AqualityServices.ConditionalWait.WaitFor(() =>
+			{
+				return isHighlighted == _scientificPage.MainForm.GetAttributeKeypadItem("class", keypadCommand).Contains("dcg-hovered");
+			}),
+				$"'{keypadCommand}' button is{(isHighlighted ? " not" : string.Empty)} highlighted!");
+		}
+
+		[Then(@"'([^']*)' button '(is|is not)' highlighted on 'Abc' keypad")]
+		public void CheckButtonIsHighlightedOnAbcKeypad(string keypadCommand, bool isHighlighted)
+		{
+			Assert.IsTrue(AqualityServices.ConditionalWait.WaitFor(() =>
+			{
+				return isHighlighted == _scientificPage.AbcForm.GetAttributeKeypadItem("class", keypadCommand).Contains("dcg-hovered");
+			}),
+				$"'{keypadCommand}' button is{(isHighlighted ? " not" : string.Empty)} highlighted!");
+		}
+
+		[Then(@"'([^']*)' button '(is|is not)' highlighted on 'Func' keypad")]
+		public void CheckButtonIsHighlightedOnFuncKeypad(string keypadCommand, bool isHighlighted)
+		{
+			Assert.IsTrue(AqualityServices.ConditionalWait.WaitFor(() =>
+			{
+				return isHighlighted == _scientificPage.FuncForm.GetAttributeKeypadItem("class", keypadCommand).Contains("dcg-hovered");
+			}),
+				$"'{keypadCommand}' button is{(isHighlighted ? " not" : string.Empty)} highlighted!");
+		}
+
+		[When(@"I click on '([^']*)' keypad button on 'Main' keypad")]
+		public void ClickOnKeypadButtonOnMainKeypad(string keypadCommand)
+		{
+			_scientificPage.MainForm.ClickKeypadItem(keypadCommand);
+			if(keypadCommand == "enter")
+			{
+				AddExpression();
+			}
+		}
+
+		[When(@"I click on '([^']*)' keypad button on 'Abc' keypad")]
+		public void ClickOnKeypadButtonOnAbcKeypad(string keypadCommand)
+		{
+			_scientificPage.AbcForm.ClickKeypadItem(keypadCommand);
+			if (keypadCommand == "enter")
+			{
+				AddExpression();
+			}
+		}
+
+		[When(@"I click on '([^']*)' keypad button on 'Func' keypad")]
+		public void ClickOnKeypadButtonOnFuncKeypad(string keypadCommand)
+		{
+			_scientificPage.FuncForm.ClickKeypadItem(keypadCommand);
+			if (keypadCommand == "enter")
+			{
+				AddExpression();
+			}
+		}
+
+		[Then(@"Text in input field '(is|is not)' equal '([^']*)'")]
+		public void CheckTextInInputFieldIsEqual(bool isEqual, string text)
+		{
+			Assert.IsTrue(AqualityServices.ConditionalWait.WaitFor(() =>
+			{
+				return isEqual == _scientificPage.GetInputValue().Equals(text);
+			}),
+			$"'Actual:'{_scientificPage.GetInputValue()}' value is{(isEqual ? " not" : string.Empty)} equal to '{text}' value !");
+		}
+
+		[When(@"I click on 'clear all' button")]
+		public void ClickOnClearAllButton() => _scientificPage.ClickToElement(ScientificItems.ClearAllBtn);
+
+		[Then(@"Expression field '(is|is not)' added")]
+		public void CheckExpressionFieldIsAdded(bool IsAdded)
+		{
+			Assert.IsTrue(AqualityServices.ConditionalWait.WaitFor(() =>
+			{
+				return IsAdded == (_scientificPage.GetCountOfExpressions() == GetCountOfExpressions());
+			}),
+			$"'Expression field is{(IsAdded ? " not" : string.Empty)} added!" +
+			$" Expected:'{GetCountOfExpressions()}' but was: '{_scientificPage.GetCountOfExpressions()}'");
+		}
+		private void AddExpression()
+		{
+			int countOfExpression = GetCountOfExpressions();
+			_scenarioContext[ScenarioContextStorage.CountOfExpression.ToString()] = ++countOfExpression;
+		}
+
+		private int GetCountOfExpressions()
+		{
+			int countOfExpressions;
+			if (!_scenarioContext.TryGetValue(ScenarioContextStorage.CountOfExpression.ToString(), out countOfExpressions))
+			{
+				_scenarioContext[ScenarioContextStorage.CountOfExpression.ToString()] = countOfExpressions;
+			}
+
+			return countOfExpressions;
+		}
+
+		[Then(@"Last expression field '(is|is not)' equal '([^']*)'")]
+		public void CheckLastExpressionFieldIsEqual(bool isEqual, string expectedExpression)
+		{
+			Assert.AreEqual(isEqual, expectedExpression == _scientificPage.GetLastExpressionValue(),
+			$"'Actual:'{_scientificPage.GetLastExpressionValue()}' expression value is{(isEqual ? " not" : string.Empty)} equal to '{expectedExpression}' value !");
+		}
+
+		[Then(@"Result of last sum expression field is correct")]
+		public void CheckResultOfLastExpressionFieldIsCorrect(Table table)
+		{
+			var expectedResult = int.Parse(table.Rows.First()["ValueOne"]) + int.Parse(table.Rows.First()["ValueTwo"]);
+			Assert.AreEqual(expectedResult, int.Parse(_scientificPage.GetResultOfLastExpression()), "result is not correct");
+		}
 	}
 }

@@ -1,11 +1,9 @@
-﻿using Aquality.Selenium.Forms;
-using OpenQA.Selenium;
+﻿using OpenQA.Selenium;
 
 namespace DesmosTest.Pages.Forms
 {
-	public class ScientificMainForm : Form
+	public class ScientificMainForm : BaseKeypadForm
 	{
 		public ScientificMainForm() : base(By.XPath("//div[contains(@class,'dcg-scientific-container')]//span[@dcg-command='+']"), "Main Form") { }
-	
 	}
 }

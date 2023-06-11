@@ -2,11 +2,16 @@
 using Aquality.Selenium.Forms;
 using DesmosTest.Pages.Forms;
 using OpenQA.Selenium;
+using System.Text;
 
 namespace DesmosTest.Pages
 {
 	public class ScientificPage : Form
 	{
+		private const string XpathToFindResultOfExpression = "//span[contains(@class,'dcg-mq-mathspeak')]/following-sibling::span";
+
+		private const string XpathToFindExpressionValue = "//span[@class='dcg-mq-textarea']//following-sibling::span/*[self::var or self::span]";
+
 		public ScientificMainForm MainForm => new ScientificMainForm();
 
 		public ScientificAbcForm AbcForm => new ScientificAbcForm();
@@ -40,6 +45,12 @@ namespace DesmosTest.Pages
 
 		private IButton FuncTab => ElementFactory.GetButton(By.XPath("//div[@dcg-command='functions']"),"Func Tab");
 
+		public ILabel InputField => ElementFactory.GetLabel(By.XPath("//div[contains(@class,'dcg-focused')]"), "InputField");
+
+		private IButton ClearAllBtn => ElementFactory.GetButton(By.XPath("//div[@dcg-command='clearall']"), "Clear All button");
+		
+		private IList<ILabel> ExpressionFields => ElementFactory.FindElements<ILabel>(By.XPath("//div[@class='dcg-basic-list']/div[@class='dcg-basic-expression']"));
+
 		public ScientificPage() : base(By.XPath("//div[contains(@class,'dcg-scientific-container')]"), "Desmos Scientific Calculator"){}
 
 		public bool IsElementDisplayed(ScientificItems item) => GetElements()[item].State.IsDisplayed;
@@ -61,6 +72,28 @@ namespace DesmosTest.Pages
 
 		public void HoverElement(ScientificItems item) => GetElements()[item].MouseActions.MoveToElement();
 
+		public string GetLastExpressionValue() => GetExpressionValue(ExpressionFields.Last());
+
+		public string GetResultOfLastExpression() => GetResultValue(ExpressionFields.Last());
+
+		private string GetResultValue(IElement expressionField) => expressionField.FindChildElement<ILabel>(By.XPath(
+			XpathToFindResultOfExpression)).GetText().Replace("=", "");
+
+		public int GetCountOfExpressions() => ExpressionFields.Count;
+
+		public string GetInputValue() => GetExpressionValue(InputField);
+
+		private string GetExpressionValue(IElement expressionField)
+		{
+			var actualResult = new StringBuilder();
+			foreach (var item in expressionField.FindChildElements<ILabel>(By.XPath(XpathToFindExpressionValue)))
+			{
+				actualResult.Append(item.GetText());
+			}
+			actualResult.ToString();
+			return actualResult.ToString();
+		}
+
 		private IDictionary<ScientificItems, IElement> GetElements()
 		{
 			return new Dictionary<ScientificItems, IElement>
@@ -74,6 +107,8 @@ namespace DesmosTest.Pages
 				{ ScientificItems.MainTab, MainTab },
 				{ ScientificItems.AbcTab, AbcTab },
 				{ ScientificItems.FuncTab, FuncTab },
+				{ ScientificItems.InputField, InputField },
+				{ ScientificItems.ClearAllBtn, ClearAllBtn },
 			};
 		}
 		public enum ScientificItems
@@ -87,6 +122,8 @@ namespace DesmosTest.Pages
 			MainTab,
 			AbcTab,
 			FuncTab,
+			InputField,
+			ClearAllBtn,
 		}
 	}
 }
