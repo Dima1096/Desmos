@@ -1,7 +1,7 @@
 ﻿Feature: Verify the Resources dropdown menu
 
 
-Scenario: Verify the Resources dropdown menuu
+Scenario: Verify the Resources dropdown menu
 	Given 'Scientific' page was opened
 	Then 'Resources' dropdown menu 'is' displayed
 	When I click on the 'Resources' dropdown menu

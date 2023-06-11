@@ -7,6 +7,6 @@ namespace DesmosTest.Pages.Forms
 {
 	public class ScientificAbcForm : Form
 	{
-		public ScientificAbcForm() : base(By.XPath("//div[contains(@class,'dcg-scientific-container')]//span[@dcg-command='+']"), "Main tab"){}
+		public ScientificAbcForm() : base(By.XPath("//div[contains(@class,'dcg-scientific-container')]//span[@dcg-command='s']"), "ABC tab"){}
 	}
 }

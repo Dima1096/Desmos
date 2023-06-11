@@ -34,6 +34,12 @@ namespace DesmosTest.Pages
 
 		private IList<ILabel> ResourcesItems => ResourcesMenu.FindChildElements<ILabel>(By.XPath("/parent::div//li/a"));
 
+		private IButton MainTab => ElementFactory.GetButton(By.XPath("//div[@dcg-command='main']"), "Main Tab");
+
+		private IButton AbcTab => ElementFactory.GetButton(By.XPath("//div[@dcg-command='ABC']"), "Abc Tab");
+
+		private IButton FuncTab => ElementFactory.GetButton(By.XPath("//div[@dcg-command='functions']"),"Func Tab");
+
 		public ScientificPage() : base(By.XPath("//div[contains(@class,'dcg-scientific-container')]"), "Desmos Scientific Calculator"){}
 
 		public bool IsElementDisplayed(ScientificItems item) => GetElements()[item].State.IsDisplayed;
@@ -48,7 +54,13 @@ namespace DesmosTest.Pages
 		}
 
 		public List<string> GetListOfClassroomItems() => ClassroomItems.Select(item => item.GetText()).ToList();
+
 		public List<string> GetListOfResourcesItems() => ResourcesItems.Select(item => item.GetText()).ToList();
+
+		public string GetAttribute(string attribute, ScientificItems item) => GetElements()[item].GetAttribute(attribute);
+
+		public void HoverElement(ScientificItems item) => GetElements()[item].MouseActions.MoveToElement();
+
 		private IDictionary<ScientificItems, IElement> GetElements()
 		{
 			return new Dictionary<ScientificItems, IElement>
@@ -59,6 +71,9 @@ namespace DesmosTest.Pages
 				{ ScientificItems.MathToolsList, MathToolsList },
 				{ ScientificItems.ClassroomList, ClassroomList },
 				{ ScientificItems.ResourcesList, ResourcesList },
+				{ ScientificItems.MainTab, MainTab },
+				{ ScientificItems.AbcTab, AbcTab },
+				{ ScientificItems.FuncTab, FuncTab },
 			};
 		}
 		public enum ScientificItems
@@ -69,6 +84,9 @@ namespace DesmosTest.Pages
 			MathToolsList,
 			ClassroomList,
 			ResourcesList,
+			MainTab,
+			AbcTab,
+			FuncTab,
 		}
 	}
 }

@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace DesmosSpecFlow.Features
+namespace DesmosSpecFlow.Features.Tab
 {
     using TechTalk.SpecFlow;
     using System;
@@ -20,22 +20,22 @@ namespace DesmosSpecFlow.Features
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("Verify the Resources dropdown menu")]
-    public partial class VerifyTheResourcesDropdownMenuFeature
+    [NUnit.Framework.DescriptionAttribute("Verify the abc tab")]
+    public partial class VerifyTheAbcTabFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
         private string[] _featureTags = ((string[])(null));
         
-#line 1 "Verify the Resources dropdown menu.feature"
+#line 1 "Verify the abc tab.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Verify the Resources dropdown menu", null, ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/Tab", "Verify the abc tab", null, ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -74,12 +74,12 @@ namespace DesmosSpecFlow.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Verify the Resources dropdown menuu")]
-        public virtual void VerifyTheResourcesDropdownMenuu()
+        [NUnit.Framework.DescriptionAttribute("Verify the main tab")]
+        public virtual void VerifyTheMainTab()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the Resources dropdown menuu", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the main tab", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 4
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -104,36 +104,34 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Given("\'Scientific\' page was opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 6
- testRunner.Then("\'Resources\' dropdown menu \'is\' displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("\'Abc\' tab \'is\' displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 7
- testRunner.When("I click on the \'Resources\' dropdown menu", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+  testRunner.And("\'Main\' tab \'is\' selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 8
- testRunner.Then("\'Resources\' list \'is\' displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+  testRunner.And("\'Main\' keypad \'is\' displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
-                            "Value"});
-                table3.AddRow(new string[] {
-                            "About Us"});
-                table3.AddRow(new string[] {
-                            "Careers"});
-                table3.AddRow(new string[] {
-                            "Help Center"});
-                table3.AddRow(new string[] {
-                            "Accessibility"});
-                table3.AddRow(new string[] {
-                            "Assessments"});
-                table3.AddRow(new string[] {
-                            "Equity Principles"});
-                table3.AddRow(new string[] {
-                            "Guiding Principles"});
-                table3.AddRow(new string[] {
-                            "Desmos Store"});
-                table3.AddRow(new string[] {
-                            "Des-Blog"});
 #line 9
-  testRunner.And("Following options \'are\' displayed in \'Resources\' list", ((string)(null)), table3, "And ");
+ testRunner.When("I hover \'Abc\' tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 10
+ testRunner.Then("\'Abc\' tab \'is\' highlighted", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 11
+ testRunner.When("I click on \'Abc\' tab", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 12
+ testRunner.Then("\'Main\' tab \'is not\' selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 13
+  testRunner.And("\'Main\' keypad \'is not\' displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 14
+  testRunner.And("\'Abc\' tab \'is\' selected", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 15
+  testRunner.And("\'Abc\' keypad \'is\' displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();

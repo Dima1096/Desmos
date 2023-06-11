@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace DesmosSpecFlow.Features
+namespace DesmosSpecFlow.Features.DropdownMenu
 {
     using TechTalk.SpecFlow;
     using System;
@@ -20,22 +20,22 @@ namespace DesmosSpecFlow.Features
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.9.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     [NUnit.Framework.TestFixtureAttribute()]
-    [NUnit.Framework.DescriptionAttribute("Verify the Math tools dropdown menu")]
-    public partial class VerifyTheMathToolsDropdownMenuFeature
+    [NUnit.Framework.DescriptionAttribute("Verify the Classroom dropdown menu")]
+    public partial class VerifyTheClassroomDropdownMenuFeature
     {
         
         private TechTalk.SpecFlow.ITestRunner testRunner;
         
         private string[] _featureTags = ((string[])(null));
         
-#line 1 "Verify the Math tools dropdown menu.feature"
+#line 1 "Verify the Classroom dropdown menu.feature"
 #line hidden
         
         [NUnit.Framework.OneTimeSetUpAttribute()]
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features", "Verify the Math tools dropdown menu", null, ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/DropdownMenu", "Verify the Classroom dropdown menu", null, ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -74,12 +74,12 @@ namespace DesmosSpecFlow.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Verify the Math tools dropdown menu")]
-        public virtual void VerifyTheMathToolsDropdownMenu()
+        [NUnit.Framework.DescriptionAttribute("Verify the Classroom dropdown menu")]
+        public virtual void VerifyTheClassroomDropdownMenu()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the Math tools dropdown menu", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Verify the Classroom dropdown menu", null, tagsOfScenario, argumentsOfScenario, this._featureTags);
 #line 4
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -104,30 +104,24 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Given("\'Scientific\' page was opened", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 6
- testRunner.Then("\'Math tools\' dropdown menu \'is\' displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("\'Classroom\' dropdown menu \'is\' displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 7
- testRunner.When("I click on the \'Math tools\' dropdown menu", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I click on the \'Classroom\' dropdown menu", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 8
- testRunner.Then("\'Math tools\' list \'is\' displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("\'Classroom\' list \'is\' displayed", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-                TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
                             "Value"});
-                table2.AddRow(new string[] {
-                            "Scientific Calculator"});
-                table2.AddRow(new string[] {
-                            "Four-Function Calculator"});
-                table2.AddRow(new string[] {
-                            "Test Practice"});
-                table2.AddRow(new string[] {
-                            "Matrix Calculator"});
-                table2.AddRow(new string[] {
-                            "Geometry Tool"});
-                table2.AddRow(new string[] {
-                            "Download our apps in the Google Play Store and iOS App Store."});
+                table1.AddRow(new string[] {
+                            "For Teachers"});
+                table1.AddRow(new string[] {
+                            "For Students"});
+                table1.AddRow(new string[] {
+                            "Desmos Math 6–A1"});
 #line 9
-  testRunner.And("Following options \'are\' displayed in \'Math tools\' list", ((string)(null)), table2, "And ");
+  testRunner.And("Following options \'are\' displayed in \'Classroom\' list", ((string)(null)), table1, "And ");
 #line hidden
             }
             this.ScenarioCleanup();
